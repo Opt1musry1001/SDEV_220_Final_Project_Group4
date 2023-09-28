@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Grocery Shop</title>
+    </head
+    <body>
+        <h1>Food Items in{{ category.name }}</h1>
+
+        <ul>
+            {% for food_item in food_items %}
+                <li>
+                    <h2>{{ food_item.name }}</h2>
+                    <p>Price: ${{food_item.price }}</p>
+
+                    <a href="{% url 'add_to_cart' food_item.name %}">Add to Cart</a>
+                </li>
+            {% empty %}
+                <p>No food items available in this category.</p>
+            {% endfor %}
+        </ul>
+
+        <!--Navigation or back to catgory selection link-->
+        <a href="{% url 'category_selection' %}">Back to Category Selection</a>
+    </body>
+</html>

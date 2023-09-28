@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Grocery Shop</title>
+    </head>
+    <body>
+        <div class="centered-content">
+            <h1>Welcome to Our Grocery Shop</h1>
+            <p>Choose a category to start shopping:</p>
+                
+            <ul class="category-list">
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'category_food_items' category_name=category.name %}">
+                        <img src="{{category.image.url }}" alt="{{category.name}}" />
+                        {{ category.name }}
+                        </a>                    
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

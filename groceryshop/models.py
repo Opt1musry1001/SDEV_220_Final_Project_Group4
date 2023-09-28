@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -19,9 +19,7 @@ class Category(models.Model):
 class Food(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    inventory = models.IntegerField
-    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
-    quantity = models.IntegerField
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, default=5)
     image = models.ImageField(upload_to='food_images/', null=True, blank=True)
 
     def __str__(self):
@@ -69,11 +67,18 @@ class Cart(models.Model):
         saved_cart.items.set(self.items.all())
         self.saved_carts.add(saved_cart)
 
+    def delete_cart(self):
+        self.delete()
+
 
 class SavedCart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=100)
     items = models.ManyToManyField('Food')
     created_at = models.DateTimeField(timezone.now)
 
     def __str__(self):
         return self.name
+
+    def delete_saved_cart(self):
+        self.delete()
