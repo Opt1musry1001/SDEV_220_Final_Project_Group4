@@ -12,7 +12,7 @@
                 <li>
                     <h2>{{ food_item.name }}</h2>
                     <p>Price: ${{food_item.price }}</p>
-
+                    <img src="{{ food_item.image.url }}" alt="{{ food_item.name }}" />
                     <a href="{% url 'add_to_cart' food_item.name %}">Add to Cart</a>
                 </li>
             {% empty %}
