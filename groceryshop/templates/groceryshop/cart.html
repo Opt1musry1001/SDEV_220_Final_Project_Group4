@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+</head>
+<body>
+    <h1> Your Cart</h1>
+
+    <ul>
+        {% for food_item, quantity in cart.items %}
+            <li>
+                {{ food_item.name }} (Quantity: {{ quantity }})
+                {% if food_item.name in item_prices %}
+                    Price: ${{ item_prices.food_item.name }} each
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p> Total Price: ${{ cart.total_price }}</p>
+
+    <a href="{% url 'category_selection' %}">Back to Category Selection</a>
+</body>
+</html>

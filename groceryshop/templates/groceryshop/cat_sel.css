@@ -1,0 +1,57 @@
+/* Reset some default styles to ensure consistency */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Walmart-like background color */
+}
+
+.centered-content {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff; /* Walmart-like background color for content */
+    border: 1px solid #e0e0e0; /* Walmart-like border color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Walmart-like box shadow */
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #0072c6; /* Walmart-like primary color */
+}
+
+p {
+    font-size: 18px;
+    color: #555555; /* Walmart-like text color */
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.category-list li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: #333333; /* Walmart-like link color */
+}
+
+.category-list img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #dddddd; /* Walmart-like image border */
+}
+
+/* Add hover effect for category links */
+.category-list a:hover {
+    color: #0072c6; /* Walmart-like hover color */
+}

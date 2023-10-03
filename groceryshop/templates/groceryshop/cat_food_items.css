@@ -1,0 +1,83 @@
+/* Reset some default styles to ensure consistency */
+body, h1, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Walmart-like background color */
+}
+
+h1 {
+    font-size: 28px;
+    color: #0072c6; /* Walmart-like primary color */
+    margin: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li {
+    background-color: #ffffff; /* Walmart-like background color for content */
+    border: 1px solid #e0e0e0; /* Walmart-like border color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Walmart-like box shadow */
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333333; /* Walmart-like text color */
+}
+
+p {
+    font-size: 18px;
+    color: #555555; /* Walmart-like text color */
+}
+
+a {
+    display: block;
+    background-color: #0072c6; /* Walmart-like button color */
+    color: #ffffff; /* Walmart-like button text color */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #005aa6; /* Walmart-like button hover color */
+}
+
+/* Message for empty food items */
+p.no-items {
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Back to Category Selection link */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #0072c6; /* Walmart-like link color */
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
