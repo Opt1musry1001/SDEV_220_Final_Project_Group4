@@ -23,7 +23,7 @@
   "model": "groceryshop.food",
   "pk": 3,
   "fields": {
-    "name": "Bananas per lb.",
+    "name": "Bananas 1 lb.",
     "price": "0.59",
     "category": 1,
     "image": "food_images/Bananas_t3cvFh4.jpg"
@@ -43,7 +43,7 @@
   "model": "groceryshop.food",
   "pk": 5,
   "fields": {
-    "name": "lettuce",
+    "name": "iceberg lettuce",
     "price": "1.09",
     "category": 1,
     "image": "food_images/lettuce_Evdtg57.jpg"
@@ -53,8 +53,8 @@
   "model": "groceryshop.food",
   "pk": 6,
   "fields": {
-    "name": "Red Onions per lb.",
-    "price": "0.59",
+    "name": "Red Onions 1 lb.",
+    "price": "1.59",
     "category": 1,
     "image": "food_images/RedOnion_OY40iT2.jpg"
   }
@@ -63,8 +63,8 @@
   "model": "groceryshop.food",
   "pk": 7,
   "fields": {
-    "name": "Yellow Onions per lb.",
-    "price": "0.59",
+    "name": "Yellow Onions 1 lb.",
+    "price": "1.59",
     "category": 1,
     "image": "food_images/yellowOnion_kzIhdlq.jpg"
   }
@@ -83,7 +83,7 @@
   "model": "groceryshop.food",
   "pk": 9,
   "fields": {
-    "name": "Salmon per lb.",
+    "name": "Salmon 1 lb.",
     "price": "7.99",
     "category": 2,
     "image": "food_images/salmon_FZymvzi.jpg"
@@ -93,7 +93,7 @@
   "model": "groceryshop.food",
   "pk": 10,
   "fields": {
-    "name": "Ground Beef per lb.",
+    "name": "Ground Beef 1 lb.",
     "price": "4.99",
     "category": 2,
     "image": "food_images/groundbeef_cOknRoT.jpg"
@@ -103,7 +103,7 @@
   "model": "groceryshop.food",
   "pk": 11,
   "fields": {
-    "name": "Rump Roast per lb.",
+    "name": "Rump Roast 1 lb.",
     "price": "8.99",
     "category": 2,
     "image": "food_images/rumproast_RHNjUy5.jpg"
@@ -113,7 +113,7 @@
   "model": "groceryshop.food",
   "pk": 12,
   "fields": {
-    "name": "Chicken Breasta per lb.",
+    "name": "Chicken Breasts 1 lb.",
     "price": "2.29",
     "category": 2,
     "image": "food_images/chicken_Sc31PGd.jpg"
@@ -123,7 +123,7 @@
   "model": "groceryshop.food",
   "pk": 13,
   "fields": {
-    "name": "T-Bone Steak per lb.",
+    "name": "T-Bone Steak 1 lb.",
     "price": "10.99",
     "category": 2,
     "image": "food_images/tbonesteak_0LxbRoz.jpg"

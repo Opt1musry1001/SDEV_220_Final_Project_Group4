@@ -19,7 +19,7 @@ class Category(models.Model):
 class Food(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, default=5)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='food_images/', null=True, blank=True)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Food(models.Model):
 class Cart(models.Model):
     User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.
                              CASCADE)
-    # ?? models.OneToOneField(user, on_delete=models.CASCADE)
+    
     items = models.ManyToManyField('Food')
     created_at = models.DateTimeField(timezone.now)  # or (auto_now_add=True)
     updated_at = models.DateTimeField(timezone.now)

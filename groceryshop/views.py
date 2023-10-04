@@ -35,7 +35,11 @@ def remove_from_cart(request, food_name):
     user_cart = get_user_cart(request)
 
     if food_item.name in user_cart:
-        del user_cart[food_item.name]
+        if user_cart[food_item.name] > 1:
+            user_cart[food_item.name] -= 1
+        else:
+            del user_cart[food_item.name]
+            
         request.session.modified = True  # Save changes to the session
 
     return redirect('view_cart')  # Redirect to the cart view after removal
@@ -47,13 +51,15 @@ def view_cart(request):
 
     food_items = Food.objects.filter(name__in=food_item_names)
     
-    item_prices = {food_item.name: food_item.price for food_item in food_items}
+    item_prices = [(food_item.name, food_item.price) for food_item in food_items]
+    
 
-    total_price = sum(item_prices[item_name] * quantity for item_name, quantity in user_cart.items() if item_name in item_prices)
-
+    total_price = sum(price * user_cart[food_name] for food_name, price in item_prices)
+    
     context = {
         'cart': user_cart,
         'food_items': food_items,
+        'item_prices': item_prices,
         'total_price': total_price,
     }
 

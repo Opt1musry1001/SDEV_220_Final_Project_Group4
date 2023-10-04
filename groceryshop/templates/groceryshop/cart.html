@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Cart</title>
+    <title>My Cart</title>
 </head>
 <body>
-    <h1> Your Cart</h1>
+    <h1> My Cart</h1>
 
     <ul>
         {% for food_item, quantity in cart.items %}
             <li>
-                {{ food_item.name }} (Quantity: {{ quantity }})
-                {% if food_item.name in item_prices %}
-                    Price: ${{ item_prices.food_item.name }} each
-                {% endif %}
+                {{ food_item }} (Quantity: {{ quantity }})
+                <a href="{% url 'remove_from_cart' food_item %}">Remove</a>
+                {% for item_name, price in item_prices %}
+                    {% if food_item == item_name %}
+                        ${{ price }} each
+                    {% endif %}
+                {% endfor %}
             </li>
         {% endfor %}
     </ul>
 
-    <p> Total Price: ${{ cart.total_price }}</p>
+    <p>Total Price: ${{ total_price }}</p>
 
     <a href="{% url 'category_selection' %}">Back to Category Selection</a>
 </body>
