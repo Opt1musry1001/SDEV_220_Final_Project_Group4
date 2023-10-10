@@ -1,0 +1,262 @@
+[
+{
+  "model": "groceryshop.food",
+  "pk": 1,
+  "fields": {
+    "name": "Red Delicous Apples (3lb. bag)",
+    "price": "3.99",
+    "category": 1,
+    "image": "food_images/RedDelicious_dKiqUIo.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 2,
+  "fields": {
+    "name": "Granny Smith Apples (3 lb. bag)",
+    "price": "3.99",
+    "category": 1,
+    "image": "food_images/GrannySmith_dlbNbqK.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 3,
+  "fields": {
+    "name": "Bananas 1 lb.",
+    "price": "0.59",
+    "category": 1,
+    "image": "food_images/Bananas_t3cvFh4.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 4,
+  "fields": {
+    "name": "Celery",
+    "price": "1.59",
+    "category": 1,
+    "image": "food_images/celery_X9wS6PP.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 5,
+  "fields": {
+    "name": "iceberg lettuce",
+    "price": "1.09",
+    "category": 1,
+    "image": "food_images/lettuce_Evdtg57.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 6,
+  "fields": {
+    "name": "Red Onions 1 lb.",
+    "price": "1.59",
+    "category": 1,
+    "image": "food_images/RedOnion_OY40iT2.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 7,
+  "fields": {
+    "name": "Yellow Onions 1 lb.",
+    "price": "1.59",
+    "category": 1,
+    "image": "food_images/yellowOnion_kzIhdlq.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 8,
+  "fields": {
+    "name": "Potatoes 10lb bag",
+    "price": "5.99",
+    "category": 1,
+    "image": "food_images/Potatos_K3FOnsp.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 9,
+  "fields": {
+    "name": "Salmon 1 lb.",
+    "price": "7.99",
+    "category": 2,
+    "image": "food_images/salmon_FZymvzi.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 10,
+  "fields": {
+    "name": "Ground Beef 1 lb.",
+    "price": "4.99",
+    "category": 2,
+    "image": "food_images/groundbeef_cOknRoT.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 11,
+  "fields": {
+    "name": "Rump Roast 1 lb.",
+    "price": "8.99",
+    "category": 2,
+    "image": "food_images/rumproast_RHNjUy5.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 12,
+  "fields": {
+    "name": "Chicken Breasts 1 lb.",
+    "price": "2.29",
+    "category": 2,
+    "image": "food_images/chicken_Sc31PGd.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 13,
+  "fields": {
+    "name": "T-Bone Steak 1 lb.",
+    "price": "10.99",
+    "category": 2,
+    "image": "food_images/tbonesteak_0LxbRoz.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 14,
+  "fields": {
+    "name": "White Bread",
+    "price": "1.59",
+    "category": 4,
+    "image": "food_images/whitebread_AZi95ur.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 15,
+  "fields": {
+    "name": "Wheat Bread",
+    "price": "1.59",
+    "category": 4,
+    "image": "food_images/wheatbread_2AoV5xR.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 16,
+  "fields": {
+    "name": "Hamburger Buns",
+    "price": "1.29",
+    "category": 4,
+    "image": "food_images/hambuns_RDQJYB1.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 17,
+  "fields": {
+    "name": "Hotdog Buns",
+    "price": "1.29",
+    "category": 4,
+    "image": "food_images/hotdogbuns_P0z7n3M.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 18,
+  "fields": {
+    "name": "Eggs 18ct",
+    "price": "2.69",
+    "category": 3,
+    "image": "food_images/eggs_xZfiifk.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 19,
+  "fields": {
+    "name": "Milk",
+    "price": "2.69",
+    "category": 3,
+    "image": "food_images/milk_jSXhQJ7.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 20,
+  "fields": {
+    "name": "Butter 1lb.",
+    "price": "4.99",
+    "category": 3,
+    "image": "food_images/butter_uNbkE51.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 21,
+  "fields": {
+    "name": "Green Beans",
+    "price": "1.29",
+    "category": 5,
+    "image": "food_images/cangrnbean_Iq4ml0v.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 22,
+  "fields": {
+    "name": "Peas",
+    "price": "1.29",
+    "category": 5,
+    "image": "food_images/canpea_zfNMZQh.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 23,
+  "fields": {
+    "name": "Corn",
+    "price": "1.29",
+    "category": 5,
+    "image": "food_images/cancorn_gwsxdax.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 24,
+  "fields": {
+    "name": "Sliced Peaches",
+    "price": "1.29",
+    "category": 5,
+    "image": "food_images/canpeach_DLufnYe.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 25,
+  "fields": {
+    "name": "Sliced Pears",
+    "price": "1.29",
+    "category": 5,
+    "image": "food_images/canpear_KHgY5KF.jpg"
+  }
+},
+{
+  "model": "groceryshop.food",
+  "pk": 26,
+  "fields": {
+    "name": "Pineapple Chunks",
+    "price": "1.29",
+    "category": 5,
+    "image": "food_images/canpineapple_7ThNJr5.jpg"
+  }
+}
+]
