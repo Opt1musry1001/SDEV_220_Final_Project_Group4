@@ -27,12 +27,10 @@ class Food(models.Model):
 
 
 class Cart(models.Model):
-    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.
-                             CASCADE)
-    
-    items = models.ManyToManyField('Food')
-    created_at = models.DateTimeField(timezone.now)  # or (auto_now_add=True)
-    updated_at = models.DateTimeField(timezone.now)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    items = models.ManyToManyField(Food)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     saved_carts = models.ManyToManyField('SavedCart', blank=True)
 
@@ -47,29 +45,25 @@ class Cart(models.Model):
 
     def get_total_price(self):
         total_price = 0
-        for item in self.items.all():
-            total_price += item.price
+        for food_item in self.items.all():
+            total_price += food_item.price
         return total_price
-
-    def finalize(self):
-        self.is_active = False
-        self.save()
 
     def clear(self):
         self.items.clear()
 
     def get_item_count(self):
         return self.items.count()
-
+    
     def save_cart_for_later(self, name):
-        saved_cart = SavedCart(name=name)
+        saved_cart = SavedCart(user=self.user, name=name)
         saved_cart.save()
         saved_cart.items.set(self.items.all())
         self.saved_carts.add(saved_cart)
+        self.clear()
 
     def delete_cart(self):
         self.delete()
-
 
 class SavedCart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -82,3 +76,4 @@ class SavedCart(models.Model):
 
     def delete_saved_cart(self):
         self.delete()
+        

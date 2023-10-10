@@ -6,14 +6,16 @@
 <body>
     <h1> My Cart</h1>
 
+    
+    
     <ul>
         {% for food_item, quantity in cart.items %}
             <li>
-                {{ food_item }} (Quantity: {{ quantity }})
+                {{ food_item }} (Qty: {{ quantity }})
                 <a href="{% url 'remove_from_cart' food_item %}">Remove</a>
                 {% for item_name, price in item_prices %}
                     {% if food_item == item_name %}
-                        ${{ price }} each
+                        ${{ price }} ea
                     {% endif %}
                 {% endfor %}
             </li>
@@ -23,5 +25,23 @@
     <p>Total Price: ${{ total_price }}</p>
 
     <a href="{% url 'category_selection' %}">Back to Category Selection</a>
+    <form method="post" action="{% url 'save_cart_for_later' %}">
+        {% csrf_token %}
+        <label for="cart_name">Enter a name for your cart:</label>
+        <input type="text" id="cart_name" name="name" required>
+        <button type="submit" class="btn btn-primary">Save Cart for Later</button>
+    </form>
+    
+
+    <h2>Saved Carts</h2>
+    <ul>
+        {% for saved_cart in saved_carts %}
+            <li>
+                {{ saved_cart.name }} (Created at: {{ saved_cart.created_at }})
+                <a href="{% url 'view_saved_cart' saved_cart.id %}" class="btn btn-secondary">View Saved Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+
 </body>
 </html>
