@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+<style>
+    h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 70px;
+        text-align: center;
+        padding: 30px;
+        color: white;
+        -webkit-text-stroke: 4px black;
+    }
+    p {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 70px;
+        text-align: center;
+        text-shadow: 2px 2px white;
+    }
+    body {
+        background-image: url("https://www.tastingtable.com/img/gallery/why-do-grocery-stores-rarely-have-windows/l-intro-1643758149.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+    }
+    a {
+        text-align: center;
+        
+    }
+    ul {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 50px;
+        color: black;
+        -webkit-text-stroke: 2px black;
+        list-style: none;
+        text-shadow: 2px 3px white;
+    }
+    .scrollable-element {
+    overflow: auto;
+    max-height: 1500px; /* Adjust the height as needed */
+  }
+
+
+
+</style>
+</head>
+<body>
+    <div class="scrollable-element"></div>
+    <h1>My Cart</h1>
+
+    <ul>
+        {% for food_item, quantity in cart.items %}
+            <li>
+                {{ food_item }} (Quantity: {{ quantity }})
+                <a href="{% url 'remove_from_cart' food_item %}" style="background-color: gray; color: white; padding: 10PX 20PX;  border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; font-size: 30px; -webkit-text-stroke: 0.5px white; text-shadow: none;">Remove</a>
+                {% for item_name, price in item_prices %}
+                    {% if food_item == item_name %}
+                        ${{ price }} each
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p>Total Price: ${{ total_price }}</p>
+
+    <a href="{% url 'category_selection' %}" style="background-color: blue; color: yellow; padding: 20PX 40PX;
+    border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,
+    Times, serif; display: block; font-size: 40px; width: fit-content; margin: auto;">Back to Category Selection</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.page-header {
+    background-color: #0000D0;
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, 
+.page-header h1 a,
+.page-header h1 a:visited,
+.page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.page-header h2 {
+    color: #FFFF00;
+    font-size: 24pt;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Pacifico', cursive;
+}

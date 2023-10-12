@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Grocery Shop</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/groceryshop.css' %}">
+        <style>
+            .food-items-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+            h1 {
+                text-align: center;
+                font-family: 'Pacifico' cursive;
+            }
+            h2 {
+                text-align: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            h3 {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            ul {
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="container">
+                <h1>Wally-Mart</h1>
+                <h2>Food Items in {{ category.name }}</h2>
+            </div>
+        </header>
+
+        <main class="container">
+            <ul class="food-items-list">
+                {% for food_item in food_items %}
+                    <li>
+                        <div class="food-item">
+                            <h3>{{ food_item.name }}</h3>
+                            <p>Price: ${{food_item.price }}</p>
+                            <img src="{{ food_item.image.url }}" alt="{{ food_item.name }}" style="width: 250px; height: 250px;"/>
+
+                            {% if user.is_authenticated %}
+                                <div class="cart-links">
+                                    <a href="{% url 'add_to_cart' food_item.name %}" style="background-color: yellow; color: black; padding: 10PX 20PX;  border: none; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; ">Add to Cart</a>
+                                </div>
+
+                                <div class="cart-links">
+                                    <a href="{% url 'view_cart' %}" style="background-color: blue; color: yellow; padding: 10PX 20PX;  border: none; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; position: relative; top: 15px;">View Cart</a>
+                                </div>
+                            {% else %}
+                                <div class="cart-links">
+                                    <a href="{% url 'login' %}" style="background-color: yellow; color: black; padding: 10PX 20PX;  border: none; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; ">Login to View Cart</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% empty %}
+                    <p>No food items available in this category.</p>
+                {% endfor %}
+            </ul>
+        </main>
+        
+        
+        <a href="{% url 'category_selection' %}" style="background-color: blue; color: yellow; padding: 20PX 40PX;  border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; position: sticky; bottom: 25px; float: right;" >Back to Category Selection</a>
+    </body>
+</html>
