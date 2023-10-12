@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Saved Cart</title>
+</head>
+<body>
+    <h1>Saved Cart Details</h1>
+
+    <p>Name: {{ saved_cart.name }}</p>
+    <p>Created at: {{ saved_cart.created_at }}</p>
+
+    <h2>Items in Cart:</h2>
+    {% include 'groceryshop/saved_cart_items.html' %}
+
+    <form method="post" action="{% url 'delete_saved_cart' saved_cart.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Entire Cart</button>
+    </form>
+
+    <a href="{% url 'view_cart' %}">Back to Cart</a>
+</body>
+</html>
+
+
+
+
+
+
+    
+
+
+
+

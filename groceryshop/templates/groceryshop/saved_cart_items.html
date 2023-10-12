@@ -1,0 +1,14 @@
+
+
+<h2>Items in Saved Cart:</h2>
+<ul>
+    {% for food_item in saved_cart.items.all %}
+        <li>
+            {{ food_item.name }} (Price: ${{ food_item.price }})
+            <form method="post" action="{% url 'remove_from_saved_cart' saved_cart.id food_item.name %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete From Cart</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
