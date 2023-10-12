@@ -2,22 +2,36 @@
 <html>
 <head>
     <title>View Saved Cart</title>
+    <!-- The HTML document title for the "View Saved Cart" page. -->
 </head>
 <body>
     <h1>Saved Cart Details</h1>
+    <!-- Heading to display details of the saved cart. -->
 
     <p>Name: {{ saved_cart.name }}</p>
+    <!-- Display the name of the saved cart. -->
+
     <p>Created at: {{ saved_cart.created_at }}</p>
+    <!-- Display the creation date and time of the saved cart. -->
 
     <h2>Items in Cart:</h2>
+    <!-- Heading to list the items in the saved cart. -->
+
     {% include 'groceryshop/saved_cart_items.html' %}
+    <!-- Include another HTML template for displaying saved cart items. -->
 
     <form method="post" action="{% url 'delete_saved_cart' saved_cart.id %}">
+        <!-- Form to submit a request to delete the entire saved cart. -->
+
         {% csrf_token %}
+        <!-- Include a CSRF token for security. -->
+
         <button type="submit" class="btn btn-danger">Delete Entire Cart</button>
+        <!-- Button to trigger the deletion of the entire saved cart. -->
     </form>
 
     <a href="{% url 'view_cart' %}">Back to Cart</a>
+    <!-- Link to return to the cart view. -->
 </body>
 </html>
 
