@@ -5,29 +5,40 @@
 <html>
     <head>
         <title>Grocery Shop</title>
+        <!-- The HTML document title, indicating that this is the Grocery Shop page. -->
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- External CSS stylesheet for Bootstrap to enhance styling. -->
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <!-- Links to Google Fonts for custom font styles. -->
+
         <link rel="stylesheet" href="{% static 'css/groceryshop.css' %}">
+        <!-- Link to a static CSS file named 'groceryshop.css' for custom styling. -->
         <style>
+            <!-- Styling for the grid layout of categories -->
             .category-list {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
                 gap: 20px;
                 padding: 20px;
             }
-
+            <!-- Styling for category list items -->
             .category-list li {
                 list-style: none;
             }
+            <!-- Styling for the main title -->
             h1 {
                 text-align: center;
             }
+            <!-- Styling for the category selection title -->
             h2 {
                 text-align: center;
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
+            <!-- Styling for the background color of the page -->
             body {
                 background-color: blue;
             }
@@ -37,25 +48,38 @@
         <header class="page-header">
             <div class="container">
                 <h1>Wally-Mart</h1>
+                <!-- The main title of the grocery shop website. -->
                 <h2>Choose a category to start shopping:</h2>
+                <!-- Title for category selection. -->
             </div>
         </header>
 
         <main class="container">
             {% if user.is_authenticated %}
+            <!-- Check if the user is authenticated. -->
                 <a href="view_cart" style="background-color: yellow; color: black; padding: 10PX 20PX;  border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif;">View Cart</a>
-            {% else %}
+                    <!-- Link to view the shopping cart. -->
+                {% else %}
+                <!-- If the user is not authenticated. -->
                 <a href="{% url 'login' %}" style="background-color: yellow; color: black; padding: 10PX 20PX;  border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif;">Login to View Cart</a>
-            {% endif %}
+                    <!-- Link to prompt login for cart view. -->
+                {% endif %}
             <ul class="category-list">
+                <!-- Unordered list for category selection. -->   
                 {% for category in categories %}
+                <!-- Loop through available categories. -->
                     <li>
+                        <!-- List item for each category. -->
                         <a href="{% url 'category_food_items' category_name=category.name %}"  style="background-color: yellow; color: black; padding: 10PX 20PX;  border: none; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; ">
+                            <!-- Link for selecting a category. -->
                             <img src="{{category.image.url }}" alt="{{category.name}}" />
+                            <!-- Display category image and name. -->
                             {{ category.name }}
+                            <!-- Display the name of the category. -->
                         </a>                    
                     </li>
                 {% endfor %}
+                <!-- End of loop through categories. -->
             </ul>
         </main>        
     </body>

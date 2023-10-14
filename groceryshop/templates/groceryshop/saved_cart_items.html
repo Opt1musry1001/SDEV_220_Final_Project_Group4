@@ -1,14 +1,25 @@
 
 
 <h2>Items in Saved Cart:</h2>
+<!-- Heading to display the list of items in a saved cart. -->
 <ul>
+    <!-- Unordered list to display the saved items. -->
     {% for food_item in saved_cart.items.all %}
+    <!-- Loop through each food item in the saved cart. -->
         <li>
+            <!-- List item for each food item in the saved cart. -->
             {{ food_item.name }} (Price: ${{ food_item.price }})
+            <!-- Display the name and price of the food item. -->
             <form method="post" action="{% url 'remove_from_saved_cart' saved_cart.id food_item.name %}">
+            <!-- Form to submit a request to remove the food item from the saved cart. -->
                 {% csrf_token %}
+                <!-- Include a CSRF token for security. -->
                 <button type="submit" class="btn btn-danger">Delete From Cart</button>
+                <!-- Button to trigger the removal of the food item. -->
             </form>
         </li>
+        <!-- End of list item for the current food item. -->
     {% endfor %}
+    <!-- End of loop through saved items. -->
 </ul>
+<!-- End of unordered list for saved items. -->

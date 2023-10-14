@@ -3,6 +3,7 @@
 <head>
     <title>My Cart</title>
 <style>
+    <!-- Style definitions for various elements -->
     h1 {
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-size: 70px;
@@ -49,26 +50,48 @@
 <body>
     <div class="scrollable-element"></div>
     <h1>My Cart</h1>
+    <!-- The page title, displaying "My Cart" -->
 
     <ul>
         {% for food_item, quantity in cart.items %}
+        <!-- Loop through items in the shopping cart -->
             <li>
+            <!-- List item for each food item in the cart -->
                 {{ food_item }} (Quantity: {{ quantity }})
+                <!-- Display the food item and its quantity in the cart -->
+
                 <a href="{% url 'remove_from_cart' food_item %}" style="background-color: gray; color: white; padding: 10PX 20PX;  border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Times, serif; font-size: 30px; -webkit-text-stroke: 0.5px white; text-shadow: none;">Remove</a>
+                <!-- "Remove" button to remove the item from the cart -->
+                
                 {% for item_name, price in item_prices %}
+                <!-- Loop through item prices to match with the food item -->
+
                     {% if food_item == item_name %}
+                    <!-- Check if the item name matches the food item -->
+
                         ${{ price }} each
+                        <!-- Display the price for each unit of the food item -->
+
                     {% endif %}
+
                 {% endfor %}
+                <!-- End of inner loop through item prices -->
             </li>
+            <!-- End of list item for the food item in the cart -->
+
         {% endfor %}
+        <!-- End of loop through items in the shopping cart -->
     </ul>
+    <!-- End of the unordered list -->
 
     <p>Total Price: ${{ total_price }}</p>
+    <!-- Display the total price of all items in the cart -->
 
     <a href="{% url 'category_selection' %}" style="background-color: blue; color: yellow; padding: 20PX 40PX;
     border: black; border-radius: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,
     Times, serif; display: block; font-size: 40px; width: fit-content; margin: auto;">Back to Category Selection</a>
+    <!-- Link to return to the category selection page -->
+
     </div>
 </body>
 </html>
